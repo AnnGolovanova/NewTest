@@ -9,6 +9,5 @@ abstract public class Predators extends Animal {
         this.quantity++ ;
     }
 
-    public static class Bear extends Predators {
-    }
+
 }
