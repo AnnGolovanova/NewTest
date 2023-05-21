@@ -1,16 +1,20 @@
 import Animal.Animal;
 
 public class Island {
-    private String mass[][] = new String[100][20];
+     private static String mass[][] = new String[100][20];
 
     public Island() {
 
     }
-    public String[][] getMass() {
+   /* public static String[][] getMass() {
+        return this.mass;
+    }*/
+
+    public static String[][] getMass() {
         return mass;
     }
 
-    public void setMass(Animal nameAnimalObj, int numRow, int numCol) {
+    public static void setMass(Animal nameAnimalObj, int numRow, int numCol) {
         String nameAnimal = Tools.getName(nameAnimalObj);
         if (Tools.checkAnimal(nameAnimal, numRow, numCol)) {
             mass[numCol][numRow] = mass[numCol][numRow] + "#" + nameAnimal;
