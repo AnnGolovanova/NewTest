@@ -8,7 +8,6 @@ abstract public class Animal {
 
     abstract public int getMax();
     abstract public int getMoov();
-    public static boolean isHerbivores() {
-        return Animal.isHerbivores();
-    }
+    abstract public  boolean isHerbivores() ;
+
 }

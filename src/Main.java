@@ -15,8 +15,9 @@ public class Main {
         Tools.rundomGo();
         System.out.println("----------------------------------");
         Tools.move();
-        System.out.println("----------------------------------");
-
+        System.out.println("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
+        Tools.eat();
+        System.out.println("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-");
     }
 
 

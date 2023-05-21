@@ -2,6 +2,9 @@ import Animal.Animal;
 import Animal.Herbivores.*;
 import Animal.Predators.*;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -190,62 +193,121 @@ public class Tools {
 
     }
 
-    public static void eat() {
+    public static HashMap<String, Integer> getMapEat() {
         HashMap<String, Integer> mapEat = new HashMap<>();
-        mapEat.put("Wolf#Horse",10);
-        mapEat.put("Wolf#Deer",15);
-        mapEat.put("Wolf#Rabbit",60);
-        mapEat.put("Wolf#Goat",60);
-        mapEat.put("Wolf#Sheep",70);
-        mapEat.put("Wolf#Mouse",80);
+        mapEat.put("Wolf#Horse", 10);
+        mapEat.put("Wolf#Deer", 15);
+        mapEat.put("Wolf#Rabbit", 60);
+        mapEat.put("Wolf#Goat", 60);
+        mapEat.put("Wolf#Sheep", 70);
+        mapEat.put("Wolf#Mouse", 80);
 
-        mapEat.put("Boa#Rabbit",20);
-        mapEat.put("Boa#Mouse",40);
+        mapEat.put("Boa#Rabbit", 20);
+        mapEat.put("Boa#Mouse", 40);
 
-        mapEat.put("Fox#Rabbit",70);
-        mapEat.put("Fox#Mouse",90);
+        mapEat.put("Fox#Rabbit", 70);
+        mapEat.put("Fox#Mouse", 90);
 
-        mapEat.put("Bear#Horse",40);
-        mapEat.put("Bear#Deer",80);
-        mapEat.put("Bear#Rabbit",80);
-        mapEat.put("Bear#Goat",70);
-        mapEat.put("Bear#Sheep",70);
-        mapEat.put("Bear#Mouse",90);
+        mapEat.put("Bear#Horse", 40);
+        mapEat.put("Bear#Deer", 80);
+        mapEat.put("Bear#Rabbit", 80);
+        mapEat.put("Bear#Goat", 70);
+        mapEat.put("Bear#Sheep", 70);
+        mapEat.put("Bear#Mouse", 90);
 
-        mapEat.put("Eagle#Rabbit",90);
-        mapEat.put("Eagle#Mouse",90);
+        mapEat.put("Eagle#Rabbit", 90);
+        mapEat.put("Eagle#Mouse", 90);
 
+        /*String[][] massIsland = Island.getMass();
+        for (int i = 0; i < massIsland.length; i++) {
+            for (int j = 0; j < massIsland[i].length; j++) {
+                if (massIsland[i][j] != null) {
+                    String[] tmp = massIsland[i][j].split("#");
+                }
+            }
+        }*/
+        return mapEat;
+    }
+
+    public static boolean randomProbability(int procent) {
+        int res = (int) (Math.random() * 100);
+        return res < procent;
+    }
+
+    public static void eat() {
         String[][] massIsland = Island.getMass();
         for (int i = 0; i < massIsland.length; i++) {
             for (int j = 0; j < massIsland[i].length; j++) {
                 if (massIsland[i][j] != null) {
                     String[] tmp = massIsland[i][j].split("#");
-
+                    ArrayList<String> mass = Tools.eatCell(tmp, i, j);
+                    for (String x:mass) {
+                        Animal animal = Tools.creatObj(x);
+                        if (animal != null) {
+                            Island.setMass(animal, j, i);
+                        }
+                    }
                 }
-
             }
         }
     }
-    public static boolean randomProbability(int procent){
-        int res = (int) (Math.random() * 100);
-        return res<procent;
-    }
-    public static void eat(String[] massCells){
+
+    public static ArrayList<String> eatCell(String[] massCells, int i, int j) {
+        ArrayList<String> herb = new ArrayList<>();
+        ArrayList<String> pred = new ArrayList<>();
+        String res = "";
+        //делим массив на хищников и травоядных
         for (int k = 0; k < massCells.length; k++) {
             Animal animal = Tools.creatObj(massCells[k]);
-            String[] tmpMass;
             if (animal != null) {
-                boolean isPredators = true;
-                while (isPredators == false){
-                    for (int i = 0; i < massCells.length; i++) {
-                        if (Animal.isHerbivores() == false){
-                            isPredators = true;
-                        }
-
+                if (animal.isHerbivores()) {
+                    herb.add(massCells[k]);
+                } else
+                    pred.add(massCells[k]);
+            }
+        }
+        ArrayList<String> herbTmp = herb;
+        if (!pred.isEmpty() && !herb.isEmpty()) {
+            System.out.println("В ячейке " + i + "||" + j + " было " + massCells.toString());
+            for (String x : pred) {
+                for (String y : herbTmp) {
+                    if (Tools.makeEat(x + "#" + y)) {
+                        //herb.remove(y);
+                        herbTmp.set(herbTmp.indexOf(y), "");
+                        res = res + "# " + y;
+                        //System.out.println("Съели " + y);
+                        System.out.println("В ячейке " + i + "||" + j + " съели " + res);
+                        if (herb.isEmpty()) break;
                     }
                 }
             }
         }
 
+        pred.addAll(herbTmp);
+        return pred;
+       /* for (int k = 0; k < pred.size(); k++) {
+            //pred.set(k,pred.get(k)+ "#");
+            Animal animal = Tools.creatObj(pred.get(k));
+            if (animal != null) {
+                Island.setMass(animal, j, i);
+            }
+        }*/
+
+    }
+
+    public static boolean makeEat(String name) {
+        int probability = 0;
+        boolean res = false;
+        if (Tools.getMapEat().containsKey(name)) {
+            probability = Tools.getMapEat().get(name);
+            if (probability != 0) {
+                res = Tools.randomProbability(probability);
+            }
+        }
+
+        return res;
+    }
+    public static void mess(String mess){
+        System.out.println(mess);
     }
 }

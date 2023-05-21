@@ -11,7 +11,7 @@ abstract public class Herbivores extends Animal {
         this.quantity++;
     }
 
-    public static boolean isHerbivores() {
+    public boolean isHerbivores() {
         return isHerbivores;
     }
 }
