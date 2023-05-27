@@ -184,10 +184,14 @@ public class Tools {
                         if (animal != null) {
                             int[] cell = Tools.getRundomCells(animal);
                             Island.setMass(animal, cell[0], cell[1]);
+                            animal.setHealth(animal.getHealth() - (animal.getLive() *0.1));
+                            if (animal.getHealth() <= 0.5){
+//стираем из массива
+                                death(animal,cell[0],cell[1]);
+                            }
                         }
                     }
                 }
-
             }
         }
 
@@ -309,5 +313,13 @@ public class Tools {
     }
     public static void mess(String mess){
         System.out.println(mess);
+    }
+    public static void death(Animal animal, int i, int j){
+        String[][] massIsland = Island.getMass();
+        String[] animalCell = massIsland[i][j].split("#");
+        String res= null;
+        for (String x :animalCell) {
+
+        }
     }
 }

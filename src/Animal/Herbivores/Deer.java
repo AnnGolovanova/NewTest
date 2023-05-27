@@ -7,6 +7,8 @@ public class Deer extends Herbivores {
     int num;
     int moov = 4;
     int max = 20;
+    final double live = 300;
+    double health = 300;
     public Deer() {
         this.num++;
     }
@@ -23,4 +25,18 @@ public class Deer extends Herbivores {
     public int getMoov() {
         return this.moov;
     }
+
+    @Override
+    public double getHealth() {
+        return this.health;
+    }
+    @Override
+    public void setHealth(double val) {
+        this.health = val;
+    }
+
+    public  double getLive() {
+        return this.live;
+    }
+
 }

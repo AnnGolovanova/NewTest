@@ -6,6 +6,8 @@ public class Horse extends Herbivores {
     int num;
     int moov = 4;
     int max = 20;
+    final double live = 400;
+    double health = live;
     public Horse() {
         this.num++;
     }
@@ -23,4 +25,20 @@ public class Horse extends Herbivores {
     public int getMoov() {
         return this.moov;
     }
+    @Override
+    public double getHealth() {
+        return this.health;
+    }
+
+    @Override
+    public double getLive() {
+        return this.live;
+    }
+
+    @Override
+    public void setHealth(double val) {
+        this.health=val;
+    }
+
+
 }

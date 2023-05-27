@@ -6,6 +6,8 @@ public class Rabbit extends Herbivores {
     int num;
     int moov = 2;
     int max = 150;
+    double live = 2;
+    double health = live;
     public Rabbit() {
         this.num ++;
     }
@@ -21,5 +23,19 @@ public class Rabbit extends Herbivores {
     @Override
     public int getMoov() {
         return this.moov;
+    }
+    @Override
+    public double getHealth() {
+        return this.health;
+    }
+
+    @Override
+    public double getLive() {
+        return this.live;;
+    }
+
+    @Override
+    public void setHealth(double val) {
+        this.health = val;
     }
 }
