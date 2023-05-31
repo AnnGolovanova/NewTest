@@ -4,20 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2dfc07e3-46a9-4228-8c9d-85da9edb7d6d" name="Changes" comment="new try eat">
+    <list default="true" id="2dfc07e3-46a9-4228-8c9d-85da9edb7d6d" name="Changes" comment="new try death">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Animal/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Animal/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Animal/Herbivores/Deer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Animal/Herbivores/Deer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Animal/Herbivores/Goat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Animal/Herbivores/Goat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Animal/Herbivores/Horse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Animal/Herbivores/Horse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Animal/Herbivores/Mouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Animal/Herbivores/Mouse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Animal/Herbivores/Rabbit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Animal/Herbivores/Rabbit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Animal/Herbivores/Sheep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Animal/Herbivores/Sheep.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Animal/Predators/Bear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Animal/Predators/Bear.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Animal/Predators/Boa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Animal/Predators/Boa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Animal/Predators/Eagle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Animal/Predators/Eagle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Animal/Predators/Fox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Animal/Predators/Fox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Animal/Predators/Wolf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Animal/Predators/Wolf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tools.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,16 +56,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -141,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684681087088</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="new try death">
+      <created>1685180764707</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685180764707</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -151,6 +151,23 @@
     <MESSAGE value="new try rundom filling" />
     <MESSAGE value="new try move" />
     <MESSAGE value="new try eat" />
-    <option name="LAST_COMMIT_MESSAGE" value="new try eat" />
+    <MESSAGE value="new try death" />
+    <option name="LAST_COMMIT_MESSAGE" value="new try death" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tools.java</url>
+          <line>175</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tools.java</url>
+          <line>188</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

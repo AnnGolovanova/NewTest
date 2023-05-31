@@ -31,7 +31,7 @@ public class Rabbit extends Herbivores {
 
     @Override
     public double getLive() {
-        return this.live;;
+        return this.live;
     }
 
     @Override

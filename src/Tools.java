@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Tools {
+public class Tools extends Thread{
     public static Animal creatObj(String nameObj) {
         //возвращает обьект класса
         //String[] f = obj.getClass().getName().split("\\.");
@@ -130,7 +130,7 @@ public class Tools {
         return res;
     }
 
-    public static void rundomGo() {
+    public static void rundomGo(){
         Animal bear1 = Tools.creatObj("Bear");
         Animal boa = Tools.creatObj("Boa");
         Animal eagle = Tools.creatObj("Eagle");
@@ -183,11 +183,10 @@ public class Tools {
                         Animal animal = Tools.creatObj(tmp[k]);
                         if (animal != null) {
                             int[] cell = Tools.getRundomCells(animal);
-                            Island.setMass(animal, cell[0], cell[1]);
-                            animal.setHealth(animal.getHealth() - (animal.getLive() *0.1));
-                            if (animal.getHealth() <= 0.5){
-//стираем из массива
-                                death(animal,cell[0],cell[1]);
+                            animal.setHealth(animal.getHealth() - (animal.getLive() * 0.1));
+                            if (animal.getHealth() >= 0.5) {
+                                Island.setMass(animal, cell[0], cell[1]);
+                                // death(animal,cell[0],cell[1]);
                             }
                         }
                     }
@@ -245,7 +244,7 @@ public class Tools {
                 if (massIsland[i][j] != null) {
                     String[] tmp = massIsland[i][j].split("#");
                     ArrayList<String> mass = Tools.eatCell(tmp, i, j);
-                    for (String x:mass) {
+                    for (String x : mass) {
                         Animal animal = Tools.creatObj(x);
                         if (animal != null) {
                             Island.setMass(animal, j, i);
@@ -272,7 +271,7 @@ public class Tools {
         }
         ArrayList<String> herbTmp = herb;
         if (!pred.isEmpty() && !herb.isEmpty()) {
-            System.out.println("В ячейке " + i + "||" + j + " было " + massCells.toString());
+            System.out.println("В ячейке " + i + "||" + j + " было " +  String.join("#",massCells));
             for (String x : pred) {
                 for (String y : herbTmp) {
                     if (Tools.makeEat(x + "#" + y)) {
@@ -311,15 +310,30 @@ public class Tools {
 
         return res;
     }
-    public static void mess(String mess){
+
+    public static void mess(String mess) {
         System.out.println(mess);
     }
-    public static void death(Animal animal, int i, int j){
-        String[][] massIsland = Island.getMass();
-        String[] animalCell = massIsland[i][j].split("#");
-        String res= null;
-        for (String x :animalCell) {
 
+    public static void death(Animal animal, int i, int j) {
+        String[][] massIsland = Island.getMass();
+        String[] animalCell = massIsland[j][i].split("#");
+        String res = "";
+        boolean flag = false;
+        for (int k = 0; k < animalCell.length; k++) {
+
+            if (animalCell[k] == Tools.getName(animal)) {
+                if (flag = false) {
+                    flag = true;
+                } else {
+                    res = res + "#" + animalCell[k];
+                }
+            } else {
+                res = res + "#" + animalCell[k];
+            }
         }
+        massIsland[i][j] = res;
+        System.out.println("В ячейке " + i + " || " + j + " остались " + res);
     }
+
 }
